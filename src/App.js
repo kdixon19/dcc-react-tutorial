@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import DisplayEntries from './Componenets/DisplayEntries/DisplayEntries';
 import AddEntryForm from './Componenets/DisplayEntries/AddEntry/AddEntryForm';
 import EntriesChartTracker from './Componenets/DisplayEntries/EntriesChartTracker/EntriesChartTracker';
+import './App.css';
 
 function App() {
 
@@ -15,10 +16,23 @@ function App() {
   }  
   
   return (
-    <div>
-      <DisplayEntries parentEntries = {entries} />
-      <AddEntryForm addNewEntry ={addNewEntry} />
-      <EntriesChartTracker parentEntries = {entries}/>
+    <div className='container-fluid'>
+      <div className = 'row'>
+        <h3 style ={{margin: '1em'}}>Weight <small className = 'text-muted'>Tracker</small></h3>
+        <div className = 'col-md-6'>
+            <div className = 'border-box'>
+              <DisplayEntries parentEntries = {entries} />
+            </div>
+            <div className = 'border-box'>
+              <AddEntryForm addNewEntry ={addNewEntry} />
+            </div>
+        </div>
+        <div className = 'col-md-6'>
+            <div className = 'border-box'>
+              <EntriesChartTracker parentEntries = {entries}/>
+            </div>
+        </div>
+      </div>
     </div>
   );
 }
